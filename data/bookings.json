@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2024-12-15T10:30:00.000Z",
+  "lastUpdated": "2026-05-22T10:30:00.000Z",
   "version": "1.0",
   "bookings": [
     {
@@ -8,120 +8,7 @@
       "bookedBy": "ABC Corporation",
       "eventType": "Annual Conference"
     },
-    {
-      "date": "2024-12-20",
-      "shift": "night",
-      "bookedBy": "XYZ Events",
-      "eventType": "Gala Dinner"
-    },
-    {
-      "date": "2024-12-22",
-      "shift": "day",
-      "bookedBy": "Tech Solutions Ltd",
-      "eventType": "Product Launch"
-    },
-    {
-      "date": "2024-12-23",
-      "shift": "night",
-      "bookedBy": "Rotary Club",
-      "eventType": "Charity Gala"
-    },
-    {
-      "date": "2024-12-25",
-      "shift": "night",
-      "bookedBy": "Smith Family",
-      "eventType": "Christmas Party"
-    },
-    {
-      "date": "2024-12-28",
-      "shift": "day",
-      "bookedBy": "Business Forum International",
-      "eventType": "Networking Event"
-    },
-    {
-      "date": "2024-12-31",
-      "shift": "night",
-      "bookedBy": "City Events Management",
-      "eventType": "New Year's Eve Gala"
-    },
-    {
-      "date": "2025-01-05",
-      "shift": "day",
-      "bookedBy": "Corporate Summit Inc",
-      "eventType": "Annual Meeting"
-    },
-    {
-      "date": "2025-01-10",
-      "shift": "night",
-      "bookedBy": "Ahmed-Miah Wedding",
-      "eventType": "Wedding Reception"
-    },
-    {
-      "date": "2025-01-15",
-      "shift": "day",
-      "bookedBy": "Tech Conference 2025",
-      "eventType": "Innovation Summit"
-    },
-    {
-      "date": "2025-01-18",
-      "shift": "day",
-      "bookedBy": "Women in Business",
-      "eventType": "Leadership Conference"
-    },
-    {
-      "date": "2025-01-20",
-      "shift": "night",
-      "bookedBy": "Khan Corporation",
-      "eventType": "Annual Dinner"
-    },
-    {
-      "date": "2025-01-25",
-      "shift": "day",
-      "bookedBy": "Education Fair 2025",
-      "eventType": "Exhibition"
-    },
-    {
-      "date": "2025-01-28",
-      "shift": "night",
-      "bookedBy": "Rahman Family",
-      "eventType": "Wedding Ceremony"
-    },
-    {
-      "date": "2025-02-01",
-      "shift": "day",
-      "bookedBy": "Startup Summit",
-      "eventType": "Pitch Competition"
-    },
-    {
-      "date": "2025-02-05",
-      "shift": "night",
-      "bookedBy": "Cultural Society",
-      "eventType": "Music Concert"
-    },
-    {
-      "date": "2025-02-10",
-      "shift": "day",
-      "bookedBy": "Medical Conference",
-      "eventType": "Health Summit"
-    },
-    {
-      "date": "2025-02-14",
-      "shift": "night",
-      "bookedBy": "Valentine's Gala",
-      "eventType": "Romantic Dinner"
-    },
-    {
-      "date": "2025-02-20",
-      "shift": "day",
-      "bookedBy": "Trade Fair Authority",
-      "eventType": "International Expo"
-    },
-    {
-      "date": "2025-02-25",
-      "shift": "night",
-      "bookedBy": "Chowdhury Wedding",
-      "eventType": "Wedding Reception"
-    }
+    
     {
   "date": "2026-05-22",
   "shift": "day",  // Use "day" for Day Shift (8AM-8PM) or "night" for Night Shift (8PM-8AM)
