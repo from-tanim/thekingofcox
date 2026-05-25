@@ -2,17 +2,62 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>👑 King of Cox Convention Hall | Premium Event Venue</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <meta name="theme-color" content="#0a0f1c">
+    <meta name="description" content="King of Cox Convention Hall - Premium Event Venue Booking System">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="apple-mobile-web-app-title" content="King of Cox">
+    
+    <!-- PWA Meta Tags -->
+    <link rel="manifest" href="manifest.json">
+    <link rel="apple-touch-icon" href="icons/icon-192x192.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="icons/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="icons/favicon-16x16.png">
+    <link rel="shortcut icon" href="icons/favicon.ico">
+    
+    <title>King of Cox Convention Hall</title>
+    
+    <!-- Stylesheets -->
     <link rel="stylesheet" href="styles.css">
     <link href="https://cdn.jsdelivr.net/npm/fullcalendar@5.11.3/main.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Scripts -->
     <script src="https://cdn.jsdelivr.net/npm/fullcalendar@5.11.3/main.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 <body>
+    <!-- Preloader -->
+    <div id="preloader">
+        <div class="preloader-container">
+            <div class="crown-loader">
+                <i class="fas fa-crown"></i>
+            </div>
+            <div class="loader-text">KING OF COX</div>
+            <div class="loader-subtitle">Convention Hall</div>
+            <div class="progress-bar">
+                <div class="progress-fill"></div>
+            </div>
+            <div class="loading-percentage">0%</div>
+        </div>
+    </div>
+
     <div class="cursor-glow"></div>
     <div class="noise-bg"></div>
+    
+    <!-- Install Prompt for PWA -->
+    <div id="install-prompt" class="install-prompt" style="display: none;">
+        <div class="install-content">
+            <i class="fas fa-download"></i>
+            <div class="install-text">
+                <strong>Install App</strong>
+                <small>Add to home screen for best experience</small>
+            </div>
+            <button id="install-btn" class="install-btn">Install</button>
+            <button id="close-install" class="close-install">&times;</button>
+        </div>
+    </div>
     
     <header>
         <div class="header-content">
@@ -70,22 +115,22 @@
                 <div class="card glass-card">
                     <div class="card-icon"><i class="fas fa-building"></i></div>
                     <h3>Grand Architecture</h3>
-                    <p>Spread across 50,000 sq. ft. with majestic pillars, crystal chandeliers, and a grand entrance that leaves a lasting impression.</p>
+                    <p>Spread across 50,000 sq. ft. with majestic pillars, crystal chandeliers, and a grand entrance.</p>
                 </div>
                 <div class="card glass-card">
                     <div class="card-icon"><i class="fas fa-wifi"></i></div>
                     <h3>Modern Amenities</h3>
-                    <p>State-of-the-art sound system, 4K projectors, high-speed WiFi, HVAC, and professional lighting for any event type.</p>
+                    <p>State-of-the-art sound system, 4K projectors, high-speed WiFi, HVAC, and professional lighting.</p>
                 </div>
                 <div class="card glass-card">
                     <div class="card-icon"><i class="fas fa-utensils"></i></div>
                     <h3>Catering Service</h3>
-                    <p>In-house premium catering with international cuisine options, customizable menus for all dietary needs.</p>
+                    <p>In-house premium catering with international cuisine options for all dietary needs.</p>
                 </div>
                 <div class="card glass-card">
                     <div class="card-icon"><i class="fas fa-parking"></i></div>
                     <h3>Ample Parking</h3>
-                    <p>Secure parking for 10+ vehicles with valet service and 24/7 security surveillance.</p>
+                    <p>Secure parking for 500+ vehicles with valet service and 24/7 security surveillance.</p>
                 </div>
             </div>
 
@@ -106,7 +151,7 @@
                 <div class="calendar-header-stylish">
                     <div class="title-section">
                         <h2><i class="fas fa-calendar-check"></i> Live Availability Calendar</h2>
-                        <p class="subtitle">Real-time booking status - Updated every 30 seconds</p>
+                        <p class="subtitle">Real-time booking status - Updates every 30 seconds</p>
                     </div>
                     
                     <div class="legend-stylish">
@@ -162,7 +207,6 @@
                         <div class="detail-item">
                             <i class="fas fa-map-marker-alt"></i>
                             <div>
-                                
                                 <h4>Location</h4>
                                 <p>Marine Drive Road, Cox's Bazar<br>Bangladesh 4700</p>
                             </div>
@@ -180,7 +224,6 @@
                                 <h4>Email</h4>
                                 <p>royal@kingofcox.com<br>events@kingofcox.com</p>
                             </div>
-                            
                         </div>
                     </div>
 
@@ -229,7 +272,7 @@
         <div class="footer-content">
             <div class="footer-section">
                 <h4><i class="fas fa-crown"></i> King of Cox</h4>
-                <p>Redefining event excellence in Cox's Bazar since 2022</p>
+                <p>Redefining event excellence in Cox's Bazar since 2010</p>
             </div>
             <div class="footer-section">
                 <h4>Quick Links</h4>
@@ -250,7 +293,19 @@
         </div>
     </footer>
 
-   <script src="script.js"></script>
-
+    <script src="script.js"></script>
+    
+    <!-- PWA Registration -->
+    <script>
+        if ('serviceWorker' in navigator) {
+            window.addEventListener('load', () => {
+                navigator.serviceWorker.register('/sw.js').then(registration => {
+                    console.log('ServiceWorker registered: ', registration);
+                }).catch(error => {
+                    console.log('ServiceWorker registration failed: ', error);
+                });
+            });
+        }
+    </script>
 </body>
 </html>
