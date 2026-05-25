@@ -1,6 +1,92 @@
 let calendar = null;
 let bookings = [];
 
+
+// Preloader
+window.addEventListener('load', () => {
+    const preloader = document.getElementById('preloader');
+    if (preloader) {
+        // Animate progress
+        let progress = 0;
+        const progressFill = document.querySelector('.progress-fill');
+        const percentageText = document.querySelector('.loading-percentage');
+        
+        const interval = setInterval(() => {
+            progress += Math.random() * 20;
+            if (progress >= 100) {
+                progress = 100;
+                clearInterval(interval);
+            }
+            if (progressFill) progressFill.style.width = progress + '%';
+            if (percentageText) percentageText.textContent = Math.floor(progress) + '%';
+        }, 200);
+        
+        // Ensure minimum display time
+        setTimeout(() => {
+            preloader.classList.add('fade-out');
+            setTimeout(() => {
+                preloader.style.display = 'none';
+            }, 500);
+        }, 1500);
+    }
+});
+
+// PWA Installation
+let deferredPrompt;
+const installPrompt = document.getElementById('install-prompt');
+const installBtn = document.getElementById('install-btn');
+const closeInstall = document.getElementById('close-install');
+
+window.addEventListener('beforeinstallprompt', (e) => {
+    // Prevent Chrome 67 and earlier from automatically showing the prompt
+    e.preventDefault();
+    // Stash the event so it can be triggered later
+    deferredPrompt = e;
+    // Show the install prompt
+    if (installPrompt) {
+        installPrompt.style.display = 'block';
+    }
+});
+
+if (installBtn) {
+    installBtn.addEventListener('click', async () => {
+        // Hide the install prompt
+        if (installPrompt) installPrompt.style.display = 'none';
+        // Show the install prompt
+        if (deferredPrompt) {
+            deferredPrompt.prompt();
+            // Wait for the user to respond to the prompt
+            const { outcome } = await deferredPrompt.userChoice;
+            console.log(`User response to the install prompt: ${outcome}`);
+            // Clear the deferred prompt
+            deferredPrompt = null;
+        }
+    });
+}
+
+if (closeInstall) {
+    closeInstall.addEventListener('click', () => {
+        if (installPrompt) installPrompt.style.display = 'none';
+    });
+}
+
+// Check if app is installed
+window.addEventListener('appinstalled', (evt) => {
+    console.log('App installed successfully');
+    if (installPrompt) installPrompt.style.display = 'none';
+});
+
+// Handle URL parameters for direct navigation
+const urlParams = new URLSearchParams(window.location.search);
+const focus = urlParams.get('focus');
+if (focus === 'calendar') {
+    document.querySelector('[data-page="calendar"]').click();
+} else if (focus === 'contact') {
+    document.querySelector('[data-page="contact"]').click();
+}
+
+
+
 // Track mouse for cursor glow
 document.addEventListener('mousemove', (e) => {
     const glow = document.querySelector('.cursor-glow');
