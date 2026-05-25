@@ -1,5 +1,191 @@
 @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700;800;900&family=Poppins:wght@300;400;500;600;700&display=swap');
 
+
+/* Preloader Styles */
+#preloader {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg, #0a0f1c 0%, #0f172a 50%, #1e1b2e 100%);
+    z-index: 99999;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: opacity 0.5s ease, visibility 0.5s ease;
+}
+
+#preloader.fade-out {
+    opacity: 0;
+    visibility: hidden;
+}
+
+.preloader-container {
+    text-align: center;
+    animation: fadeInUp 0.6s ease;
+}
+
+.crown-loader {
+    font-size: 5rem;
+    color: #d4af37;
+    animation: crownPulse 1.5s ease-in-out infinite;
+    margin-bottom: 1rem;
+}
+
+@keyframes crownPulse {
+    0%, 100% {
+        transform: scale(1);
+        text-shadow: 0 0 10px rgba(212, 175, 55, 0.5);
+    }
+    50% {
+        transform: scale(1.1);
+        text-shadow: 0 0 30px rgba(212, 175, 55, 0.8);
+    }
+}
+
+.loader-text {
+    font-family: 'Playfair Display', serif;
+    font-size: 2rem;
+    font-weight: 700;
+    background: linear-gradient(135deg, #d4af37, #f9d423);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    letter-spacing: 3px;
+    margin-bottom: 0.5rem;
+}
+
+.loader-subtitle {
+    font-size: 0.9rem;
+    color: rgba(255,255,255,0.7);
+    margin-bottom: 2rem;
+}
+
+.progress-bar {
+    width: 250px;
+    height: 3px;
+    background: rgba(255,255,255,0.1);
+    border-radius: 3px;
+    overflow: hidden;
+    margin: 0 auto 1rem;
+}
+
+.progress-fill {
+    width: 0%;
+    height: 100%;
+    background: linear-gradient(90deg, #d4af37, #f9d423);
+    border-radius: 3px;
+    transition: width 0.3s ease;
+    animation: loading 2s ease-in-out;
+}
+
+@keyframes loading {
+    0% { width: 0%; }
+    50% { width: 70%; }
+    100% { width: 100%; }
+}
+
+.loading-percentage {
+    font-size: 0.9rem;
+    color: #d4af37;
+    font-weight: 600;
+}
+
+/* Install Prompt Styles */
+.install-prompt {
+    position: fixed;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 10000;
+    animation: slideUp 0.3s ease;
+}
+
+.install-content {
+    background: linear-gradient(135deg, #1e2a3a, #0f172a);
+    backdrop-filter: blur(20px);
+    border: 1px solid rgba(212, 175, 55, 0.3);
+    border-radius: 15px;
+    padding: 1rem 1.5rem;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+}
+
+.install-content i:first-child {
+    font-size: 1.5rem;
+    color: #d4af37;
+}
+
+.install-text {
+    display: flex;
+    flex-direction: column;
+}
+
+.install-text strong {
+    color: #d4af37;
+    font-size: 0.9rem;
+}
+
+.install-text small {
+    font-size: 0.7rem;
+    color: rgba(255,255,255,0.7);
+}
+
+.install-btn {
+    background: linear-gradient(135deg, #d4af37, #b8960c);
+    border: none;
+    padding: 0.5rem 1rem;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: 600;
+    transition: transform 0.2s;
+}
+
+.install-btn:hover {
+    transform: scale(1.05);
+}
+
+.close-install {
+    background: none;
+    border: none;
+    color: white;
+    font-size: 1.2rem;
+    cursor: pointer;
+    padding: 0 0 0 0.5rem;
+    opacity: 0.7;
+}
+
+.close-install:hover {
+    opacity: 1;
+}
+
+/* Responsive adjustments for preloader */
+@media (max-width: 768px) {
+    .crown-loader {
+        font-size: 3rem;
+    }
+    
+    .loader-text {
+        font-size: 1.5rem;
+    }
+    
+    .progress-bar {
+        width: 200px;
+    }
+    
+    .install-content {
+        padding: 0.8rem 1rem;
+        margin: 0 1rem;
+    }
+}
+
+
+
+
+
 :root {
     --primary-gold: #d4af37;
     --primary-gold-dark: #b8960c;
